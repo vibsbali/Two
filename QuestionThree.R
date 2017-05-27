@@ -41,5 +41,31 @@ y <- t(X)%*%X
 #-- Get eigenvalues and vectors (These vectors are principal components) --
 vectorY <- eigen(y)
 eigenvectors <- vectorY$vectors
+#-- Plot 3 first principle axes and plot them against arguments
+plot(x = arguments, y= eigenvectors[,1:1], type = 'l', ylim=c(-.2,.2), col = "deepskyblue",
+     xlab = "Arguments", ylab = "First 3 Principal Axis", main = "Arguments / Principal Axis")
+lines(x = arguments, y = eigenvectors[,2:2], col = "aquamarine4")
+lines(x = arguments, y = eigenvectors[,3:3], col = "dodgerblue")
 
-diff(vectorY$vectors)
+#--------------------------------
+#part b ends here
+#--------------------------------
+
+#-- I am also creating a covariance matrix and creating principal components --
+# -- My Alternative Solution to the problem ----------
+covar <- cov(X)
+eigenOfCovar <- covar$vector
+plot(x = arguments, y= eigenOfCovar$vector[,1:1], type = 'l', ylim=c(-.2,.2), col = "deepskyblue",
+     xlab = "Arguments", ylab = "First 3 Principal Axis", main = "Arguments / Principal Axis")
+lines(x = arguments, y= eigenOfCovar$vector[,2:2], col = "aquamarine4")
+lines(x = arguments, y= eigenOfCovar$vector[,3:3], col = "dodgerblue")
+# ---------------------------------
+
+
+
+
+ 
+
+
+
+
