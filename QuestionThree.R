@@ -38,8 +38,8 @@ lines(y = X[20,], type = 'l', x = arguments, col = "darkgoldenrod4",lwd=2)
 
 #-- Transposing matrix X
 y <- t(X)%*%X
-dim(y)
-
+#-- Get eigenvalues and vectors (These vectors are principal components) --
 vectorY <- eigen(y)
+eigenvectors <- vectorY$vectors
 
-diff(vectorY$values)
+diff(vectorY$vectors)
