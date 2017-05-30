@@ -1,4 +1,5 @@
-
+install.packages("geometry")
+require("geometry")
 #-- Provided Code
 set.seed(10) #initialize pseudo random generator for reproducibility
 n<-3000; p=100
@@ -62,10 +63,18 @@ lines(x = arguments, y= eigenOfCovar$vector[,3:3], col = "dodgerblue")
 # ---------------------------------
 
 
+firstRow <- X[1,]
+dot1 <- dot(firstRow, eigenvectors[,1:1])
+dot2 <- dot(firstRow, eigenvectors[,2:2])
+dot3 <- dot(firstRow, eigenvectors[,3:3])
+
+projection1 <- dot1 * eigenvectors[,1:1]
+projection2 <- dot1 * eigenvectors[,1:1] + dot2 * eigenvectors[,2:2]
+projection3 <- dot1 * eigenvectors[,1:1] + dot2 * eigenvectors[,2:2] + dot3 * eigenvectors[,3:3]
 
 
- 
-
-
+plot(x = arguments, y = projection1, type = 'l')
+lines(x = arguments, y = projection2, type = 'l')
+lines(x = arguments, y = projection3, type = 'l')
 
 
