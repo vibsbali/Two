@@ -1,7 +1,7 @@
 install.packages("data.table")
 require("data.table")
 
-seed(0)
+set.seed(0)
 
 #read the data using a traditional method
 ptm <- proc.time()
@@ -67,9 +67,9 @@ print(mean(time_difference_vector))
 #--------------------------------
 
 #sample at 5 minute intervals and then merge the columns 
-time_data <- time[seq(1, nrow(market1),60),]
-price_data <- last_prices[seq(1, nrow(market1),60),] 
-new_data_file <- cbind.data.frame(time_data, price_data)
+TIME <- time[seq(1, nrow(market1),60)]
+price_data <- last_prices[seq(1, nrow(market1),60)] 
+new_data_file <- cbind.data.frame(TIME, price_data)
 
 saveRDS(object=new_data_file, file = "gen_five_min_prices.rds")
 

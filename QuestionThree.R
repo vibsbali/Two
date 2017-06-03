@@ -62,7 +62,7 @@ lines(x = arguments, y= eigenOfCovar$vector[,2:2], col = "aquamarine4")
 lines(x = arguments, y= eigenOfCovar$vector[,3:3], col = "dodgerblue")
 # ---------------------------------
 
-
+#--------------------------------
 firstRow <- X[1,]
 dot1 <- dot(firstRow, eigenvectors[,1:1])
 dot2 <- dot(firstRow, eigenvectors[,2:2])
@@ -73,8 +73,15 @@ projection2 <- dot1 * eigenvectors[,1:1] + dot2 * eigenvectors[,2:2]
 projection3 <- dot1 * eigenvectors[,1:1] + dot2 * eigenvectors[,2:2] + dot3 * eigenvectors[,3:3]
 
 
-plot(x = arguments, y = projection1, type = 'l')
-lines(x = arguments, y = projection2, type = 'l')
-lines(x = arguments, y = projection3, type = 'l')
+plot(x = arguments, y = projection1, type = 'l', col = "black",
+     xlab = "Arguments", ylab = "First 3 Projections", main = "Arguments / Projections")
+lines(x = arguments, y = projection2, type = 'l', col = "red")
+lines(x = arguments, y = projection3, type = 'l', col = "blue")
 
+legend(0.8, 6.5, c("1st Projection in black"), col=cols, bty="n", text.col = "black")
+legend(0.8, 6.25, c("2nd Projection in red"), col=cols, bty="n", text.col = "red")
+legend(0.8, 6.0, c("3rd Projection in blue"), col=cols, bty="n", text.col = "blue")
+#--------------------------------
+#part c ends here
+#--------------------------------
 

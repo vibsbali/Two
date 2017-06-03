@@ -11,7 +11,7 @@ five_min_prices <- readRDS("five_min_prices.rds")
 #--------------------------------
 
 #convert machine times to calendar time objects
-time <- five_min_prices[["TIME"]];
+time <- five_min_prices[["TIME"]]
 time_stamps <- as.POSIXct(time, origin="1970-01-01", tz = "GMT")
 
 # set up the plot 
@@ -57,7 +57,6 @@ legend(0, 6000, c("Empirical"), col=cols, bty="n", text.col = "black")
 legend(0.0001, 2000, c("Normal"), col=cols, bty="n", text.col = "red")
 
 #average of all increments, which exceed 0.99 quantile
-#TODO Check
 mean(diff_price_BTC_ETH_last > quantile(diff_price_BTC_ETH_last, 0.99))
 quantile(diff_price_BTC_ETH_last, 0.99)
 
