@@ -13,7 +13,7 @@ proc.time() - ptm
 
 #compare time with fread
 ptm <- proc.time()
-market1 <- fread("C:/RScripts/AssignmentTwo/Poloniex.csv", skip=1, header=T)
+market1 <- fread("Poloniex.csv", skip=1, header=T)
 proc.time() - ptm
 
 #compare data writing operations with binary versions
@@ -71,7 +71,7 @@ TIME <- time[seq(1, nrow(market1),60)]
 price_data <- last_prices[seq(1, nrow(market1),60)] 
 new_data_file <- cbind.data.frame(TIME, price_data)
 
-saveRDS(object=new_data_file, file = "gen_five_min_prices.rds")
+saveRDS(object=new_data_file, file = "five_min_prices.rds")
 
 #--------------------------------
 #part g ends here
